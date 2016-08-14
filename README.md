@@ -7,7 +7,7 @@ The goal of this project is to examine several variables related to health and b
 
 In order to be able to measure everything every day, the data should be easy to obtain. Objective measurements will probably be better to reduce statistical fluctuation. 
 
-#Health and lifestyle related variables
+#### Health and lifestyle related variables ####
 Weight					(weighting scale)
 Bodyfat %				(weighting scale. large systemic error, but small statistical error)
 Muscle %				(weighting scale. large systemic error, but small statistical error)
@@ -20,7 +20,7 @@ Acne (#yellow pimples)
 Number/hours of naps during the day
 Time spent on the internet		("mind the time" mozilla extension)
 
-#Diet related variables
+#### Diet related variables ####
 List with all the consumed foods and corresponding grams.
 -> From this list, Macro and micro nutrients can be calculated
 -> other items like caffeine, alcohol, 
