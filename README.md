@@ -6,7 +6,6 @@ The goal of this project is to examine several variables related to health and b
 EXPORT MYFITNESSPAL: https://www.designbyvh.com/myfitnesspal-export-data/
 EXPORT GOOGLE FIT: https://takeout.google.com/settings/takeout
 
-
 #### VARIABLES ####
 
 In order to be able to measure everything every day, the data should be easy to obtain. Objective measurements will probably be better to reduce statistical fluctuation. 
