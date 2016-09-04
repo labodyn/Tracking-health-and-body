@@ -43,7 +43,7 @@ carbs->muscle, fat: kwadratic, close to linear?
 protein->muscle, fat: kwadratic, close to linear?
 
 #### MACHINE LEARNING ALGORITHM ####
-??? which algorithm would be most appropriote?
+??? which algorithm would be most appropriate?
 From past experiments: Most foods take 1-2 days to take effect. 
 time correlations?
 
