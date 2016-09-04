@@ -49,10 +49,6 @@ For the most part, we expect linear effects. The amount of food or lifestyle fac
 
 Expected: 
 
-
-
-
-
 ADL MODEL: Auto Distributed Lag
 
 assume x to be exogenuous. (x can be chosen: independent of other parameters of the model)
@@ -60,13 +56,5 @@ assume x to be exogenuous. (x can be chosen: independent of other parameters of 
 y_{t} = c + a*y_{t-1} + b_1*x_{t-1} + b_2*x_{t-2} + b_3*x_{t-3} + ... + epsilon_t
 
 or more variables x to the model! set a = 1 (work in differences)?
-
-
-
-
-
-
-
-
 
 
