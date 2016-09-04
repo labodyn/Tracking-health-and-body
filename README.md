@@ -30,8 +30,6 @@ List with all the consumed foods and corresponding grams + full nutritional data
 -> From this list, Macro and micro nutrients can be calculated
 -> other items like caffeine, alcohol, 
 
-
-
 #### CAUSAL RELATIONS TO EXAMINE
 Diet -> body composition (weight, bodyfat, muscle)
 Lifestyle -> body composition
