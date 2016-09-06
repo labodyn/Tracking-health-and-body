@@ -1,10 +1,12 @@
 # Tracking-health-and-body
 
-The goal of this project is to examine several variables related to health and body composition from different diet and lifestyle factors. Machine learning algorithms will be used to learn and predict.
+The goal of this project is to examine the influence of different diet and lifestyle factors on different measures of health and body composition. Inference + prediction.
 
 #### DATA COLLECTION ####
 EXPORT MYFITNESSPAL: https://www.designbyvh.com/myfitnesspal-export-data/
 EXPORT GOOGLE FIT: https://takeout.google.com/settings/takeout
+EXPORT FITNOTES: Through the app http://fitnotesapp.com/
+Self tracking of weight, bodyfat, waiste size, ...
 
 #### VARIABLES ####
 
@@ -31,14 +33,16 @@ List with all the consumed foods and corresponding grams + full nutritional data
 -> other items like caffeine, alcohol, 
 
 #### CAUSAL RELATIONS TO EXAMINE
-Diet -> body composition (weight, bodyfat, muscle)
-Lifestyle -> body composition
-Diet -> acne
+Diet,Lifestyle -> body composition (weight, bodyfat, muscle)
+Diet,Lifestyle -> acne
+
+
 
 calories-> weight: broken linear function (see figure documentation) 
 fats->muscle, fat: kwadratic, close to linear?
 carbs->muscle, fat: kwadratic, close to linear?
 protein->muscle, fat: kwadratic, close to linear?
+
 
 #### MACHINE LEARNING ALGORITHM ####
 ??? which algorithm would be most appropriate?
@@ -57,4 +61,7 @@ y_{t} = c + a*y_{t-1} + b_1*x_{t-1} + b_2*x_{t-2} + b_3*x_{t-3} + ... + epsilon_
 
 or more variables x to the model! set a = 1 (work in differences)?
 
+
+Acne MODEL:
+y_{t} = c + a*y_{t-1} + b_1*x_{t-1} + b_2*x_{t-2} + b_3*x_{t-3} + ... + epsilon_t
 
