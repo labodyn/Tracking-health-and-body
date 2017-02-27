@@ -6,11 +6,20 @@ The goal of this project is to examine the influence of different diet and lifes
 EXPORT MYFITNESSPAL: https://www.designbyvh.com/myfitnesspal-export-data/
 EXPORT GOOGLE FIT: https://takeout.google.com/settings/takeout
 EXPORT FITNOTES: Through the app http://fitnotesapp.com/
+
 Self tracking of weight, bodyfat, waiste size, ...
 
 #### VARIABLES ####
 
-In order to be able to measure everything every day, the data should be easy to obtain. Objective measurements will probably be better to reduce statistical fluctuation. 
+In order to be able to measure everything every day, the data should be easy to obtain. Objective measurements will probably be better to reduce  statistical fluctuation. 
+
+#### FEATURES ####
+*Gym data can be used to estimate:
+	-the overall burned calories, calculated using personal ROM measures together with the exercise specific energy expenditure (1)
+	-the overall intensity (as % of 1RM), calculated by weighting the exercises by burned kcal.
+These two features give two independant measures of the overal level of stress of the training. The burned calories can be used to calculate the energy deficit/excess related to weight fluctuations. 
+
+*Myfitnesspal data
 
 #### Health and lifestyle related variables ####
 Weight					(weighting scale)
@@ -65,3 +74,6 @@ or more variables x to the model! set a = 1 (work in differences)?
 Acne MODEL:
 y_{t} = c + a*y_{t-1} + b_1*x_{t-1} + b_2*x_{t-2} + b_3*x_{t-3} + ... + epsilon_t
 
+
+#### REFERENCES ####
+(1) http://breakingmuscle.com/olympic-weightlifting/how-to-calculate-the-energy-expenditure-of-weightlifters

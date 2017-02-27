@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Running">
+            <Id>2015-11-17T14:51:28.000Z</Id>
+            <Notes>Running</Notes>
+            <Lap StartTime="2015-11-17T14:51:28.000Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2015-11-17T14:51:28.000Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>539.400634765625</DistanceMeters>
+                        <Time>2015-11-17T14:52:04.045Z</Time>
+                        <Position>
+                            <LatitudeDegrees>51.046714782714844</LatitudeDegrees>
+                            <LongitudeDegrees>3.7238264083862305</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>59.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>539.400634765625</DistanceMeters>
+                        <Time>2015-11-17T14:52:52.053Z</Time>
+                        <Position>
+                            <LatitudeDegrees>51.04648208618164</LatitudeDegrees>
+                            <LongitudeDegrees>3.723693609237671</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>66.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>539.400634765625</DistanceMeters>
+                        <Time>2015-11-17T14:53:40.027Z</Time>
+                        <Position>
+                            <LatitudeDegrees>51.04756164550781</LatitudeDegrees>
+                            <LongitudeDegrees>3.7231435775756836</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>64.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>539.400634765625</DistanceMeters>
+                        <Time>2015-11-17T14:54:27.023Z</Time>
+                        <Position>
+                            <LatitudeDegrees>51.04802703857422</LatitudeDegrees>
+                            <LongitudeDegrees>3.722870349884033</LongitudeDegrees>
+                        </Position>
+                        <AltitudeMeters>66.0</AltitudeMeters>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>539.400634765625</DistanceMeters>
+                        <Time>2015-11-17T14:54:57.000Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>539.400634765625</DistanceMeters>
+                <TotalTimeSeconds>209.0</TotalTimeSeconds>
+                <Calories>50.0</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>

@@ -4,21 +4,44 @@
 #Date: September 2016                          #
 ################################################
 
+
 ###################################
 #     Read in the data            #
 ###################################
 
 library("reshape")
+library("xlsx")
 setwd("/home/lander/Dropbox/Tracking-health-and-body/data")
 data.MFP <- read.csv("MyFitnessPal.csv")[,-2]          #MyFitnessPal
 data.FN <- read.csv("FitNotes_Export.csv")[,c(1:5)]  #FitNotes
 data.GF <- read.csv("Takeout/Fit/Daily Aggregations/Daily Summaries.csv")[,c(1,2,3)] #Google Fit
+data.BM <- read.xlsx("body measurements.xlsx", sheetIndex=1)[,c(1:11)] #Body measurements
+
 
 ###################################
 #     Transform the data          #
 ###################################
 
-#### MyFitnessPal ####
+#### Body Measurements ####
+#======================
+
+data.BM <- data.BM[!is.na(data.BM$Date),]
+
+data.BM$bodyfat..kg <- data.BM$weight..kg*data.BM$bodyfat..pct/100
+data.BM$ffm..kg <- data.BM$weight..kg*(100 - data.BM$bodyfat..pct)/100
+
+plot(data.BM$weight..kg,pch="*", xlab='Days', lwd=3, col="grey", ann=FALSE, las=2)
+par(new=TRUE)
+plot(data.BM$ffm..kg,pch="*",ann=FALSE, axes=FALSE,col='blue')
+par(new=TRUE)
+plot(data.BM$bodyfat..kg,pch="*",ann=FALSE, axes=FALSE,col='red')
+#Putting dates in the right format
+data.BM$Date <- as.Date(data.BM$Date)
+
+
+plot(data.BM$weight..kg, data.BM$waterweight..pct,pch="*",col='red')
+
+# MyFitnessPal ####
 #======================
 
 #Putting dates in the right format
@@ -39,6 +62,7 @@ data.foods <- cast(data.MFP[,c(1,10,11)],Date~Product,sum,value = 'Quantity')
 #Later: more exact calculation of nutrients
 data.nutrients <- aggregate(. ~ Date, data=data.MFP[,-c(10,11)], FUN=sum)
 
+#Merge nutrients and foods features
 data.MFP2 <- merge(data.nutrients,data.foods,by="Date")
 
 
@@ -155,9 +179,82 @@ data.FN6$gym_intensity..pct <-data.FN6$weightedintens/data.FN6$gym_burned..kcal*
 data.FN6$weightedintens <- NULL
 data.FN6$Exercise <- NULL
 
-
+#Add warm up calories
+data.FN6$weekday <- format(data.FN6$Date,format="%u") 
+data.FN6$warmupcal..kcal <- 0
+data.FN6[data.FN6$weekday == 1,]$warmupcal..kcal <- 100
+data.FN6[data.FN6$weekday == 3,]$warmupcal..kcal <- 50
+data.FN6[data.FN6$weekday == 5,]$warmupcal..kcal <- 150
 
 ### Combine the data ###
 
 total1 <- merge(data.GF,data.FN6,by="Date",all.x=TRUE)
-total2 <- merge(total1,data.MFP2,by="Date")
+total2 <- merge(data.BM,total1,by="Date",all.y=TRUE)
+total3 <- merge(total2,data.MFP2,by="Date")
+
+### Calorie 
+total3[is.na(total3)] <- 0
+total3$weight..kg_yesterday <- c(total3$weight..kg[-1], NA)
+total3$weight..kg_diff <- total3$weight..kg - total3$weight..kg_yesterday
+total3$weight..kg_diff[total3$weight..kg_diff > 5] <- 0
+total3$weight..kg_diff[total3$weight..kg_diff < -5] <- 0
+total3$burned_total..kcal <- total3$Calories..kcal. + total3$gym_burned..kcal + total3$warmupcal..kcal
+total3$Calories_diff <- total3$Calories - total3$burned_total..kcal
+plot(total3$Calories_diff, total3$weight..kg_diff )
+
+#################################
+#     DATA EXPLORATION          #
+#################################
+total3$fart_2delay <- c(total3$smellyfarts...0..4.rating.[-2], 0)
+
+df <- tail(total3, -36)
+df$Fat = df$Fat/100
+df$Carbs = df$Carbs/100
+df$Protein = df$Protein/100
+
+df$weekday <- format(df$Date,format="%u") 
+df$is_trainingday <- 0
+df$is_weekend <- 0
+df[df$weekday == 1,]$is_trainingday <- 1
+df[df$weekday == 3,]$is_trainingday <- 1
+df[df$weekday == 5,]$is_trainingday <- 1
+df[df$weekday == 6,]$is_weekend <- 1
+df[df$weekday == 7,]$is_weekend <- 1
+
+
+#masturbation
+model <- lm(df$mastrubation...[-c(1)] ~ df$Carbs[-c(1)] + df$Fat[-c(1)] + df$Protein[-c(1)] + df$Carbs[-c(85)] + df$Fat[-c(85)] + df$Protein[-c(85)] +  df$is_weekend[-c(1)] +df$is_trainingday[-c(1)])
+summary(model)
+
+#farts
+model <- lm(df$smellyfarts...0..4.rating.[-c(1,2)] ~ df$Carbs[-c(1,85)] + df$Fat[-c(1,85)] + df$Protein[-c(1,85)] + df$Carbs[-c(84,85)] + df$Fat[-c(84,85)] + df$Protein[-c(84,85)])
+summary(model)
+
+#acne
+model <- lm(df$acnebody...pimpels[-c(1,2,3,4)] ~ df$`rice cracker in g`[-c(1,2,84,85)] + df$`rice cracker in g`[-c(1,83,84,85)] + df$`rice cracker in g`[-c(82,83,84,85)]
+
+model <- lm(df$acnebody...pimpels[-c(1,2,3,4)] ~ df$`chocolate 85% in g`[-c(1,2,84,85)] + df$`chocolate 85% in g`[-c(1,83,84,85)] + df$`chocolate 85% in g`[-c(82,83,84,85)])
+summary(model)
+
+df$`chocolate 85% in g`
+
+
+plot(jitter(df$acnebody...pimpels[-c(1,2,3,4)]), jitter(df$`rice cracker in g`[-c(1,83,84,85)]))
+
+plot(df$mastrubation...,pch="*")
+par(new=TRUE)
+plot(df$Fat, col='red',pch="*")
+
+
+plot(data.BM$ffm..kg,pch="*", ann=FALSE, axes=FALSE, col='blue')
+par(new=TRUE)
+plot(data.BM$bodyfat..kg,pch="*", ann=FALSE, axes=FALSE, col='red')
+
+
+total3$mastrubation...
+total3$`Quaker Oats (Net Carbs) - Quick Oats Oatmeal in cup`
+total3$`Oat - Oat in g`
+
+#################################
+#     MODEL BUILDING            #
+#################################

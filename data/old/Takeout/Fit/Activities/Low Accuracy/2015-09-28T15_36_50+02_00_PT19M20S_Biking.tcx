@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TrainingCenterDatabase
+    xmlns="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+    xmlns:ns2="http://www.garmin.com/xmlschemas/UserProfile/v2"
+    xmlns:ns3="http://www.garmin.com/xmlschemas/ActivityExtension/v2"
+    xmlns:ns4="http://www.garmin.com/xmlschemas/ProfileExtension/v1"
+    xmlns:ns5="http://www.garmin.com/xmlschemas/ActivityGoals/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2 http://www.garmin.com/xmlschemas/TrainingCenterDatabasev2.xsd">
+    <Activities>
+        <Activity Sport="Biking">
+            <Id>2015-09-28T13:36:50.557Z</Id>
+            <Notes>Biking</Notes>
+            <Lap StartTime="2015-09-28T13:36:50.557Z">
+                <Track>
+                    <Trackpoint>
+                        <DistanceMeters>0.0</DistanceMeters>
+                        <Time>2015-09-28T13:36:50.557Z</Time>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>289.3006286621094</DistanceMeters>
+                        <Time>2015-09-28T13:40:13.793Z</Time>
+                        <Position>
+                            <LatitudeDegrees>51.0505485534668</LatitudeDegrees>
+                            <LongitudeDegrees>3.7233004570007324</LongitudeDegrees>
+                        </Position>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>361.3006286621094</DistanceMeters>
+                        <Time>2015-09-28T13:44:32.514Z</Time>
+                        <Position>
+                            <LatitudeDegrees>51.049957275390625</LatitudeDegrees>
+                            <LongitudeDegrees>3.7228894233703613</LongitudeDegrees>
+                        </Position>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>858.3006286621094</DistanceMeters>
+                        <Time>2015-09-28T13:48:35.200Z</Time>
+                        <Position>
+                            <LatitudeDegrees>51.0476188659668</LatitudeDegrees>
+                            <LongitudeDegrees>3.72894549369812</LongitudeDegrees>
+                        </Position>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>1855.3006286621094</DistanceMeters>
+                        <Time>2015-09-28T13:52:37.231Z</Time>
+                        <Position>
+                            <LatitudeDegrees>51.03987121582031</LatitudeDegrees>
+                            <LongitudeDegrees>3.7361443042755127</LongitudeDegrees>
+                        </Position>
+                    </Trackpoint>
+                    <Trackpoint>
+                        <DistanceMeters>2683.551239013672</DistanceMeters>
+                        <Time>2015-09-28T13:56:11.102Z</Time>
+                    </Trackpoint>
+                </Track>
+                <DistanceMeters>2683.551239013672</DistanceMeters>
+                <TotalTimeSeconds>1160.545</TotalTimeSeconds>
+                <Calories>155.190673828125</Calories>
+                <Intensity>Active</Intensity>
+                <TriggerMethod>Manual</TriggerMethod>
+            </Lap>
+        </Activity>
+    </Activities>
+    <Author xsi:type="Application_t">
+        <Name>Google Fit</Name>
+        <Build>
+            <Version>
+                <VersionMajor>0</VersionMajor>
+                <VersionMinor>0</VersionMinor>
+                <BuildMajor>0</BuildMajor>
+                <BuildMinor>0</BuildMinor>
+            </Version>
+        </Build>
+        <LangID>en</LangID>
+        <PartNumber>000-00000-00</PartNumber>
+    </Author>
+</TrainingCenterDatabase>
